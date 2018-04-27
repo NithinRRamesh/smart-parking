@@ -5,13 +5,33 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-card>
+    <ion-card-header>
+      {{date|date:'MMM d, y, h:mm a'}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="car" item-start></ion-icon>
+          Vehicles
+          <ion-badge item-end>{{count}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pulse" item-start></ion-icon>
+          Status
+          <ion-badge item-end color={{color}} >{{msg}}</ion-badge>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+<ion-card>
+    <ion-card-header>Parked vehicles</ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let vehicle of vehicles">
+      <div item-start>{{vehicle.name}}</div> <div item-end>{{vehicle.time|date:'h:mm:ss a'}}</div>
+    </ion-item>
+  </ion-list>
+</ion-card>
 </ion-content>
